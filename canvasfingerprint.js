@@ -948,13 +948,16 @@ $(function() {
                 }
                 "" == f && (f = "parser error"), h += '<td class="t"><div>' + f + "</div></td>", h += "</tr>"
             }
-            $("#canvas-file").removeClass("none"), $("#canvas-png").html(h).removeClass("none"), clck(), c(d)
+            $("#canvas-file").removeClass("none"), $("#canvas-png").html(h).removeClass("none")/*, clck()*/, c(d)
         }, function(a) {
             $("#crc-detect").text("n/a"), $("#canvas-file").append('<tr><td class="nt"></td><td colspan="4"><span class="bad">&#215;</span>' + a + "</td>").removeClass("none")
         })
     }
 
     function c(b) {
+      //Here is the unic fingerprint.
+      $('#result').html(b);
+      /*
         b += "", $.ajax({
             type: "GET",
             url: "/xhr/canvas/" + b,
@@ -969,7 +972,7 @@ $(function() {
             $("#crc-detect").html('<span class="bad">&#215;</span> Unknown Error (2) <a id="canvas_retry" href="#">retry</a>'), $("#canvas_retry").click(function(b) {
                 b.preventDefault(), $("#crc-detect").html('<div id="load"></div>'), a()
             })
-        })
+        }) */
     }
 
     function d(a) {
@@ -980,7 +983,7 @@ $(function() {
         var e = '<tr><td class="th r" colspan="2"><h3>Operating Systems</h3></td><td class="th r" colspan="2"><h3>Browsers</h3></td><td class="th" colspan="2"><h3>Devices</h3></td></tr>';
         i_os = is_os = 0, i_ua = is_ua = 0, i_pc = is_pc = 0;
         for (var f = 0; f < b; f++) e += "<tr>", "undefined" != typeof a.os[f] ? (i_os++, e += "<td>" + a.os[f][0] + '</td><td class="r">' + a.os[f][1] + "/" + a.count + "</td>") : "undefined" != typeof a.os_ver[f - i_os] ? 0 == is_os ? (i_os++, is_os = 1, e += '<td class="t th r" colspan="2"><h3>OS by Version</h3></td>') : e += "<td>" + a.os_ver[f - i_os][0] + '</td><td class="r">' + a.os_ver[f - i_os][1] + "/" + a.count + "</td>" : e += '<td></td><td class="r"></td>', "undefined" != typeof a.ua[f] ? (i_ua++, e += "<td>" + a.ua[f][0] + '</td><td class="r">' + a.ua[f][1] + "/" + a.count + "</td>") : "undefined" != typeof a.ua_ver[f - i_ua] ? 0 == is_ua ? (i_ua++, is_ua = 1, e += '<td class="t th r" colspan="2"><h3>Browsers by Version</h3></td>') : e += "<td>" + a.ua_ver[f - i_ua][0] + '</td><td class="r">' + a.ua_ver[f - i_ua][1] + "/" + a.count + "</td>" : e += '<td></td><td class="r"></td>', "undefined" != typeof a.device[f] ? (i_pc++, e += "<td>" + a.device[f][0] + "</td><td>" + a.device[f][1] + "/" + a.count + "</td>") : "undefined" != typeof a.platform[f - i_pc] ? 0 == is_pc ? (i_pc++, is_pc = 1, e += '<td class="t th" colspan="2"><h3>Platforms</h3></td>') : e += "<td>" + a.platform[f - i_pc][0] + "</td><td>" + a.platform[f - i_pc][1] + "/" + a.count + "</td>" : e += "<td></td><td></td>", e += "</tr>";
-        $("#canvas-table").append(e), $("#canvas-warn-browser, #canvas-table-thead, #canvas-table").removeClass("none"), $("#canvas-table").css("margin-bottom", "2px"), clck()
+        $("#canvas-table").append(e), $("#canvas-warn-browser, #canvas-table-thead, #canvas-table").removeClass("none"), $("#canvas-table").css("margin-bottom", "2px") /*, clck()*/
     }
 
     function f() {
