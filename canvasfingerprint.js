@@ -13,7 +13,7 @@ PngToy.prototype.fetchDataURL = function(a) {
 
 
 $(function() {
-    function a() {
+    function canvasFingerprint() {
         $("#load").removeClass("none");
         var a, c = !0,
             d = g(),
@@ -50,12 +50,18 @@ $(function() {
         $("#canvas-img").html('<img src="' + b + '" alt="&nbsp;Error displaying &lt;img&gt; tag" />');
         var e = 0;
         try {
-            for (var f = a.getImageData(0, 0, 220, 30), g = new Uint32Array(f.data.buffer), h = g.length, i = {}, j = 0, e = 0; j < h; j++) {
+            var f = a.getImageData(0, 0, 220, 30);
+            g = new Uint32Array(f.data.buffer);
+            h = g.length;
+            i = {};
+            e = 0;
+
+            for (j = 0; j < h; j++) {
                 var k = "" + (16777215 & g[j]);
                 i[k] || (e++, i[k] = 0), i[k]++
             }
         } catch (a) {
-            console.warn(a)
+            console.warn(a);
         }
         e < 1 && (e = "n/a"), $("#canvas-file-colors").text(e), $("#canvas-file-size").text(d.length + " bytes"), $("#canvas-file-md5").text(md5(d).toUpperCase());
         var l = new PngToy([{
@@ -95,5 +101,5 @@ $(function() {
         return '<span class="bad">&#215;</span> False'
     }
     //"undefined" != typeof window.atob && "function" == typeof Promise && "function" == typeof ArrayBuffer
-    a()
+    canvasFingerprint();
 });
