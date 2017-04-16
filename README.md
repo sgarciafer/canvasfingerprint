@@ -11,6 +11,7 @@ Dependencies:
 ============
 
 md5 : https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.7.0/js/md5.min.js
+
 pngtoy : https://gitcdn.link/repo/sgarciafer/pngtoy/master/pngtoy.js
 
 
