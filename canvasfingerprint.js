@@ -881,7 +881,10 @@ PngToy.prototype.fetchDataURL = function(a) {
             d(a.message)
         }
     })
-}, $(function() {
+}
+
+
+$(function() {
     function a() {
         $("#load").removeClass("none");
         var a, c = !0,
