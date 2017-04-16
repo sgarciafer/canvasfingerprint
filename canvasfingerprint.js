@@ -11,18 +11,18 @@ PngToy.prototype.fetchDataURL = function(a) {
     })
 }
 
-
-$(function() {
+//jQuery.noConflict();
+jQuery(function() {
     function canvasFingerprint() {
-        $("#load").removeClass("none");
+        jQuery("#load").removeClass("none");
         var a, c = !0,
             d = g(),
             h = g(),
             i = g(),
             j = "Canvas Fingerprint 1.0",
-            iframe = $('body').append('<iframe id="iframe2"></iframe>'),
+            iframe = jQuery('body').append('<iframe id="iframe2"></iframe>'),
             k = document.getElementById("iframe2").contentDocument.createElement("canvas");
-            $('#iframe2').attr('style','width:1px;height:1px;border:0px solid black;display:none;visibility:hidden;');
+            jQuery('#iframe2').attr('style','width:1px;height:1px;border:0px solid black;display:none;visibility:hidden;');
         if (k.getContext && (a = k.getContext("2d"))) {
             if (d = f(), "function" == typeof k.getContext("2d").fillText) {
                 h = f();
@@ -42,15 +42,15 @@ $(function() {
                 0 === l.indexOf("data:image/png") ? i = f() : c = !1
             } else c = !1
         } else c = !1;
-        if ($("#is-canvas").html(d), $("#is-canvas-text").html(h), $("#is-canvas-todataurl").html(i), c) {
+        if (jQuery("#is-canvas").html(d), jQuery("#is-canvas-text").html(h), jQuery("#is-canvas-todataurl").html(i), c) {
             b(a, l)
-        } else $("#crc-detect").text("n/a"), $(".no").css("opacity", "0.5")
+        } else jQuery("#crc-detect").text("n/a"), jQuery(".no").css("opacity", "0.5")
     }
 
     function b(a, b) {
         var d = atob(b.replace("data:image/png;base64,", ""));
         window.fingerprintImage = b;
-        //$("#canvas-img").html('<img src="' + b + '" alt="&nbsp;Error displaying &lt;img&gt; tag" />');
+        //jQuery("#canvas-img").html('<img src="' + b + '" alt="&nbsp;Error displaying &lt;img&gt; tag" />');
         var e = 0;
         try {
             var f = a.getImageData(0, 0, 220, 30);
@@ -66,7 +66,7 @@ $(function() {
         } catch (a) {
             console.warn(a);
         }
-        e < 1 && (e = "n/a"), $("#canvas-file-colors").text(e), $("#canvas-file-size").text(d.length + " bytes"), $("#canvas-file-md5").text(md5(d).toUpperCase());
+        e < 1 && (e = "n/a"), jQuery("#canvas-file-colors").text(e), jQuery("#canvas-file-size").text(d.length + " bytes"), jQuery("#canvas-file-md5").text(md5(d).toUpperCase());
         var l = new PngToy([{
             doCRC: "true"
         }]);
@@ -77,7 +77,7 @@ $(function() {
             }
             for (var d, e, f, g = "IHDR,PLTE,sPLT,tRNS,tEXt,gAMA,cHRM,sRGB,hIST,pHYs,bKGD,tIME,sBIT,oFFs,sTER,sCAL,pCAL", h = "", i = 0, j = l.chunks.length; i < j; i++) {
                 for (e = l.chunks[i].crc.toString(16); e.length < 8;) e = "0" + e;
-                "IDAT" == l.chunks[i].name && (d = e, $("#crc").html('<span class="good">&#10004;</span> ' + d.toUpperCase())), h += '<tr><td class="nt"></td>', h += '<td class="br t wb">' + l.chunks[i].name + "</td>", h += '<td class="br t wb">' + l.chunks[i].length + "</td>", h += '<td class="br t wb">' + e.toUpperCase() + "</code></td>", f = "";
+                "IDAT" == l.chunks[i].name && (d = e, jQuery("#crc").html('<span class="good">&#10004;</span> ' + d.toUpperCase())), h += '<tr><td class="nt"></td>', h += '<td class="br t wb">' + l.chunks[i].name + "</td>", h += '<td class="br t wb">' + l.chunks[i].length + "</td>", h += '<td class="br t wb">' + e.toUpperCase() + "</code></td>", f = "";
                 try {
                     f = g.indexOf(l.chunks[i].name) != -1 ? b(l.chunks[i].name, l.getChunk(l.chunks[i].name)) : b(l.chunks[i].name), "" == f && g.indexOf(l.chunks[i].name) != -1 && (f = JSON.stringify(l.getChunk(l.chunks[i].name)))
                 } catch (a) {
@@ -85,16 +85,16 @@ $(function() {
                 }
                 "" == f && (f = "parser error"), h += '<td class="t"><div>' + f + "</div></td>", h += "</tr>"
             }
-            $("#canvas-file").removeClass("none"), $("#canvas-png").html(h).removeClass("none")/*, clck()*/, c(d)
+            jQuery("#canvas-file").removeClass("none"), jQuery("#canvas-png").html(h).removeClass("none")/*, clck()*/, c(d)
         }, function(a) {
-            $("#crc-detect").text("n/a"), $("#canvas-file").append('<tr><td class="nt"></td><td colspan="4"><span class="bad">&#215;</span>' + a + "</td>").removeClass("none")
+            jQuery("#crc-detect").text("n/a"), jQuery("#canvas-file").append('<tr><td class="nt"></td><td colspan="4"><span class="bad">&#215;</span>' + a + "</td>").removeClass("none")
         })
     }
 
     function c(b) {
       //Here is the unic fingerprint.
       window.fingerprint=b;
-      $('#result').html(window.fingerprint);
+      jQuery('#result').html(window.fingerprint);
     }
 
     function f() {
