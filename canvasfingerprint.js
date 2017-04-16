@@ -990,5 +990,5 @@ PngToy.prototype.fetchDataURL = function(a) {
     "undefined" != typeof window.atob && "function" == typeof Promise && "function" == typeof ArrayBuffer || ($.ajaxSetup({
         cache: !0,
         async: !1
-    }), $.getScript("/js/canvas-polyfills.js")), a()
+    }), $.getScript("/js/canvaspolyfill.js")), a()
 });
