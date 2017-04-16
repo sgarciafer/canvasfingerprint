@@ -891,7 +891,7 @@ $(function() {
             d = g(),
             h = g(),
             i = g(),
-            j = "BrowserLeaks,com <canvas> 1.0",
+            j = "Canvas Fingerprint 1.0",
             k = document.getElementById("iframe").contentDocument.createElement("canvas");
         if (k.getContext && (a = k.getContext("2d"))) {
             if (d = f(), "function" == typeof k.getContext("2d").fillText) {
@@ -974,7 +974,7 @@ $(function() {
             })
         }) */
     }
-
+/*
     function d(a) {
         var b = 0,
             c = [];
@@ -984,7 +984,7 @@ $(function() {
         i_os = is_os = 0, i_ua = is_ua = 0, i_pc = is_pc = 0;
         for (var f = 0; f < b; f++) e += "<tr>", "undefined" != typeof a.os[f] ? (i_os++, e += "<td>" + a.os[f][0] + '</td><td class="r">' + a.os[f][1] + "/" + a.count + "</td>") : "undefined" != typeof a.os_ver[f - i_os] ? 0 == is_os ? (i_os++, is_os = 1, e += '<td class="t th r" colspan="2"><h3>OS by Version</h3></td>') : e += "<td>" + a.os_ver[f - i_os][0] + '</td><td class="r">' + a.os_ver[f - i_os][1] + "/" + a.count + "</td>" : e += '<td></td><td class="r"></td>', "undefined" != typeof a.ua[f] ? (i_ua++, e += "<td>" + a.ua[f][0] + '</td><td class="r">' + a.ua[f][1] + "/" + a.count + "</td>") : "undefined" != typeof a.ua_ver[f - i_ua] ? 0 == is_ua ? (i_ua++, is_ua = 1, e += '<td class="t th r" colspan="2"><h3>Browsers by Version</h3></td>') : e += "<td>" + a.ua_ver[f - i_ua][0] + '</td><td class="r">' + a.ua_ver[f - i_ua][1] + "/" + a.count + "</td>" : e += '<td></td><td class="r"></td>', "undefined" != typeof a.device[f] ? (i_pc++, e += "<td>" + a.device[f][0] + "</td><td>" + a.device[f][1] + "/" + a.count + "</td>") : "undefined" != typeof a.platform[f - i_pc] ? 0 == is_pc ? (i_pc++, is_pc = 1, e += '<td class="t th" colspan="2"><h3>Platforms</h3></td>') : e += "<td>" + a.platform[f - i_pc][0] + "</td><td>" + a.platform[f - i_pc][1] + "/" + a.count + "</td>" : e += "<td></td><td></td>", e += "</tr>";
         $("#canvas-table").append(e), $("#canvas-warn-browser, #canvas-table-thead, #canvas-table").removeClass("none"), $("#canvas-table").css("margin-bottom", "2px") /*, clck()*/
-    }
+/*    }
 
     function f() {
         return '<span class="good">&#10004;</span> True'
@@ -997,4 +997,5 @@ $(function() {
         cache: !0,
         async: !1
     }), $.getScript("/js/canvaspolyfill.js")), a()
+    */
 });

@@ -1,7 +1,8 @@
 # canvas fingerprint
 ====================
 
-This is a reverse analyse of the obfuscated code from https://browserleaks.com/canvas#how-does-it-work that seem to pass all test to obtain an accurate canvas fingerprint.
+This JS code is done reversing and cleaning the really good canvas fingerprint demo from https://browserleaks.com/canvas#how-does-it-work
 
-Right now is not ready to be used.
-Contribution to clean up and separate the external plugins is welcomed.
+You can just clone and open index.html on your browser to test it out.
+
+More clean-up is required before being able to use it on a project.
