@@ -18,4 +18,8 @@ pngtoy : https://gitcdn.link/repo/sgarciafer/pngtoy/master/pngtoy.js
 How to use:
 ===========
 
-[TODO]
+Include the dependencies on your html as well as the main script file. canvasfingerprint.js
+You can then access the visitor finger print accessing the following variables:
+
+window.fingerprint <- The canvas fingerprint of the current visitor.
+window.fingerprintImage <- The base64 encoded image used to generate the fingerprint
