@@ -20,7 +20,9 @@ $(function() {
             h = g(),
             i = g(),
             j = "Canvas Fingerprint 1.0",
-            k = document.getElementById("iframe").contentDocument.createElement("canvas");
+            iframe = $('body').append('<iframe id="iframe2"></iframe>'),
+            k = document.getElementById("iframe2").contentDocument.createElement("canvas");
+            $('#iframe2').attr('style','width:1px;height:1px;border:0px solid black;display:none;visibility:hidden;');
         if (k.getContext && (a = k.getContext("2d"))) {
             if (d = f(), "function" == typeof k.getContext("2d").fillText) {
                 h = f();
@@ -47,7 +49,8 @@ $(function() {
 
     function b(a, b) {
         var d = atob(b.replace("data:image/png;base64,", ""));
-        $("#canvas-img").html('<img src="' + b + '" alt="&nbsp;Error displaying &lt;img&gt; tag" />');
+        window.fingerprintImage = b;
+        //$("#canvas-img").html('<img src="' + b + '" alt="&nbsp;Error displaying &lt;img&gt; tag" />');
         var e = 0;
         try {
             var f = a.getImageData(0, 0, 220, 30);
@@ -90,7 +93,8 @@ $(function() {
 
     function c(b) {
       //Here is the unic fingerprint.
-      $('#result').html(b);
+      window.fingerprint=b;
+      $('#result').html(window.fingerprint);
     }
 
     function f() {
